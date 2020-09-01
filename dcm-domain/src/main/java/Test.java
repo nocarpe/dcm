@@ -1,3 +1,7 @@
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
 /**
  * @author : yaoximing
  * @date : 2020/8/20
@@ -12,6 +16,17 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        System.out.println(11);
+        //Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),);
     }
+
+
+     class ProxyClass implements InvocationHandler{
+
+
+         @Override
+         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+             return null;
+         }
+     }
+
 }

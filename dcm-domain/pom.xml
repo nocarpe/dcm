@@ -5,11 +5,21 @@
     <parent>
         <artifactId>dcm</artifactId>
         <groupId>com.nocarpe</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.5</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dcm-domain</artifactId>
 
 
+
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl -->
+            <dependency>
+                <groupId>net.sourceforge.jexcelapi</groupId>
+                <artifactId>jxl</artifactId>
+                <version>2.6.12</version>
+            </dependency>
+
+        </dependencies>
 </project>

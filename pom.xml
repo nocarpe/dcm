@@ -7,7 +7,7 @@
     <groupId>com.nocarpe</groupId>
     <artifactId>dcm</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.5</version>
     <modules>
         <module>dcm-domain</module>
     </modules>
