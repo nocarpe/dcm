@@ -30,7 +30,7 @@ public class TestMain {
         Map<String,Integer> map = new ConcurrentHashMap<>();
         while (true) {
             long time1 = System.currentTimeMillis();
-            Fire2 a = new Fire2(citys, 0.998, 0.999, 200, 2000);
+            Fire2 a = new Fire2(citys, 0.998, 0.999, 50, 2000);
             long time2 = System.currentTimeMillis();
             System.out.println("构建时间："+(time2-time1));
             a.Cal();

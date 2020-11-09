@@ -10,7 +10,35 @@
     <version>0.0.5</version>
     <modules>
         <module>dcm-domain</module>
+        <module>dcm-thread</module>
     </modules>
+    <properties>
+        <springboot.version>2.3.3.RELEASE</springboot.version>
+        <open.feign.version>10.10.1</open.feign.version>
+        <github.global.server>github</github.global.server>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>3.4.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 
     <distributionManagement>
         <repository>

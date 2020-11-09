@@ -6,5 +6,8 @@ package proxy;
  * @description :
  **/
 public interface IRemote {
-            void testa(String a);
+
+    void testa(String a);
+
+    void testb(String a);
 }
