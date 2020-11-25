@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,8 +21,11 @@ public class Test {
         Date date1 = Date.from(zonedDateTime.toInstant());
         LocalDateTime localDateTime1= localDateTime.plusMinutes(1l).plusSeconds(2l);
         //localDateTime1 = localDateTime1.plusSeconds(2l);
-        System.out.println(localDateTime);
+        System.out.println(Math.rint(3052 / 1000));
+        System.out.println(((float)3052 / 1000));
+        System.out.println(new DecimalFormat("0.0").format(((float) 300052 / 1000)));
         System.out.println(localDateTime1);
+        System.out.println(new Date(1604612036964l));
         System.out.println(Duration.between(localDateTime1, localDateTime).getSeconds());
 
     }
