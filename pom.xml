@@ -12,6 +12,7 @@
         <module>dcm-domain</module>
         <module>dcm-thread</module>
         <module>dcm-application</module>
+        <module>dcm-boot</module>
     </modules>
     <properties>
         <springboot.version>2.3.5.RELEASE</springboot.version>

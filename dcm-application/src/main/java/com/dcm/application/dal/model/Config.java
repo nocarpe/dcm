@@ -1,8 +1,6 @@
 package com.dcm.application.dal.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -12,17 +10,16 @@ import java.io.Serializable;
  * </p>
  *
  * @author yaoximing
- * @since 2020-11-20
+ * @since 2020-11-30
  */
-@TableName("tbl_tel")
-public class Tel implements Serializable {
+@TableName("tbl_config")
+public class Config implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-      @TableId(value = "id", type = IdType.AUTO)
-      private Long id;
+    private Long id;
 
-    private Long phone;
+    private String code;
 
     private String name;
 
@@ -37,12 +34,12 @@ public class Tel implements Serializable {
           this.id = id;
       }
     
-    public Long getPhone() {
-        return phone;
+    public String getCode() {
+        return code;
     }
 
-      public void setPhone(Long phone) {
-          this.phone = phone;
+      public void setCode(String code) {
+          this.code = code;
       }
     
     public String getName() {
@@ -63,9 +60,9 @@ public class Tel implements Serializable {
 
     @Override
     public String toString() {
-        return "Tel0{" +
+        return "Config{" +
               "id=" + id +
-                  ", phone=" + phone +
+                  ", code=" + code +
                   ", name=" + name +
                   ", createTime=" + createTime +
               "}";

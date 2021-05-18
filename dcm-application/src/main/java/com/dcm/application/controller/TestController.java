@@ -28,5 +28,10 @@ public class TestController {
         return "ok";
     }
 
+    @GetMapping("testT")
+    public String testT() {
+        domainService.saveTel();
+        return "ok";
+    }
 
 }

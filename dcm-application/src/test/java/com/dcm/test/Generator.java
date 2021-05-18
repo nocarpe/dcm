@@ -38,13 +38,13 @@ public class Generator {
         dsc.setUsername("ddmc");
         dsc.setPassword("ddmc@123");
         dsc.setUrl(
-                "jdbc:mysql://10.23.30.125:3306/dcm_0?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false");
+                "jdbc:mysql://10.23.30.125:3306/dcm1?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false");
         mpg.setDataSource(dsc);
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         strategy.setTablePrefix("tbl_");// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[]{"tbl_dept_0","tbl_tel_0"}); // 需要生成的表
+        strategy.setInclude(new String[]{"tbl_config"}); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         // 自定义实体父类
         //        strategy.setSuperEntityClass("top.ibase4j.core.base.BaseModel");
