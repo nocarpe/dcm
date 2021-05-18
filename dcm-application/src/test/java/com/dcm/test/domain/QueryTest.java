@@ -5,6 +5,7 @@ import com.dcm.application.dal.mapper.TelMapper;
 import com.dcm.application.dal.model.Config;
 import com.dcm.application.dal.model.Dept;
 import com.dcm.application.dal.model.Tel;
+import com.dcm.application.domain.DomainService;
 import com.dcm.test.MainTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,8 @@ public class QueryTest extends MainTest {
     private TelMapper telMapper;
     @Autowired
     private ConfigMapper configMapper;
-
+    @Autowired
+    private DomainService domainService;
     @Test
     public void testq() {
         List<String> telList = telMapper.query();
@@ -32,6 +34,12 @@ public class QueryTest extends MainTest {
     public  void testc(){
      List<String> configs =    configMapper.query();
         System.out.println(configs.size());
+    }
+
+
+    @Test
+    public  void test2(){
+        domainService.saveDept();
     }
 
 }

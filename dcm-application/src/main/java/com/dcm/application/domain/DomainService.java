@@ -29,6 +29,7 @@ public class DomainService {
             dept.setName("测试" + i);
             dept.setCreateTime(LocalDateTime.now());
             deptMapper.insert(dept);
+            System.out.println(dept.getId()+"============");
         }
 
     }
@@ -44,7 +45,6 @@ public class DomainService {
         }
 
     }
-
 
 
 }
