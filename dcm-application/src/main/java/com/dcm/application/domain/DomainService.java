@@ -5,6 +5,8 @@ import com.dcm.application.dal.mapper.TelMapper;
 import com.dcm.application.dal.model.Dept;
 import com.dcm.application.dal.model.Tel;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,15 +24,25 @@ public class DomainService {
     private TelMapper telMapper;
 
     public void saveDept() {
-
-        for (long i = 1; i <= 100; i++) {
+        List<Dept> list =new ArrayList<>();
+        for (long i = 1; i <= 10; i++) {
             Dept dept = new Dept();
             dept.setNo(i);
             dept.setName("测试" + i);
             dept.setCreateTime(LocalDateTime.now());
+            list.add(dept);
+
+        }
+
+        for(Dept dept :list){
             deptMapper.insert(dept);
+
+        }
+
+        for(Dept dept :list){
             System.out.println(dept.getId()+"============");
         }
+
 
     }
 
