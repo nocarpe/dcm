@@ -5,7 +5,7 @@
 <generatorConfiguration>
     <!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包-->
     <classPathEntry
-        location="D:\sharepackage\mysql-connector-java-5.1.38.jar"/>
+        location="/Users/yaoximing/share/package/mysql-connector-java-5.1.38.jar"/>
     <context id="MysqlTables" targetRuntime="MyBatis3" defaultModelType="flat">
         <property name="javaFileEncoding" value="UTF-8"/>
         <!-- 分页相关 -->
@@ -18,33 +18,34 @@
 
         <!--数据库连接配置-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-            connectionURL="jdbc:mysql://cdb1test.srv.mc.dd:3306/fdc_do_0?useUnicode=true&amp;characterEncoding=UTF-8"
+            connectionURL="jdbc:mysql://cdb1re.test.srv.mc.dd:3306/fmc?useUnicode=true&amp;characterEncoding=UTF-8"
             userId="root" password="1234qwer">
         </jdbcConnection>
 
-        <javaTypeResolver>
-            <property name="forceBigDecimals" value="false"/>
+        <javaTypeResolver type="com.dcm.application.util.JavaTypeResolverImplUtil">
+            <property name="forceBigDecimals" value="true"/>
         </javaTypeResolver>
 
         <!-- 根据工程修改targetPackage，工程目录中新建do子目录 -->
-        <javaModelGenerator targetPackage="com.ddmc.fdc.dao.model.agreement"
+        <javaModelGenerator targetPackage="com.ddmc.fmc.dao.model.capacity"
             targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="sqlmap" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="sqlmap" targetProject="mapper/capacity">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- 根据工程修改targetPackage，mapper下新建子目录 -->
         <javaClientGenerator type="XMLMAPPER"
-            targetPackage="com.ddmc.fdc.dao.mapper.agreement" targetProject="src/main/java">
+            targetPackage="com.ddmc.fmc.dao.mapper.capacity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!-- 添加表和实体的映射，实体以DO结尾，表和表中的字段以下划线_分隔 -->
-        <table tableName="fdc_order_fresh_push_0" domainObjectName="OrderFreshPush"  enableInsert="true"
+        <table tableName="station_capacity_config_log" domainObjectName="StationCapacityConfigLog"
+            enableInsert="true"
             enableDeleteByPrimaryKey="true"
             enableSelectByPrimaryKey="true"
             enableUpdateByPrimaryKey="true"
@@ -52,7 +53,18 @@
             enableDeleteByExample="false"
             enableSelectByExample="false"
             enableUpdateByExample="false">
-            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="station_capacity_config" domainObjectName="StationCapacityConfig"
+            enableInsert="true"
+            enableDeleteByPrimaryKey="true"
+            enableSelectByPrimaryKey="true"
+            enableUpdateByPrimaryKey="true"
+            enableCountByExample="false"
+            enableDeleteByExample="false"
+            enableSelectByExample="false"
+            enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="false"/>
         </table>
     </context>
 </generatorConfiguration>
