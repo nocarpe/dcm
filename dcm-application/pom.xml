@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dcm</artifactId>
         <groupId>com.nocarpe</groupId>
-        <version>0.0.6</version>
+        <version>0.0.5</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -106,11 +106,18 @@
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.6</version>
+                <version>1.3.2</version>
                 <configuration>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.nocarpe</groupId>
+                        <artifactId>dcm-application</artifactId>
+                        <version>1.0.0-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
