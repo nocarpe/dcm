@@ -1,0 +1,61 @@
+@startuml
+participant maicai as mc
+participant fdc as fdc
+participant 算法 as alg
+participant 分谷结网 as f
+actor 哥王 as g
+group 用户app下单
+mc->fdc:下发订单
+activate fdc
+fdc->fdc:生成订单
+end
+fdc->fdc:生成分拣/水产任务
+create other
+fdc->other:创建新时序
+create control control1
+fdc<->control1:自旋
+fdc->fdc:生成配送任务（冻结）
+fdc-->mc: 待分拣
+deactivate fdc
+
+
+alg->fdc:获取待分拣任务（定时轮询）
+alg-->fdc:计算分拣任务优先级
+fdc->f:任务分派
+activate fdc
+f->fdc:开始分拣
+fdc-->mc :分拣中
+fdc->fdc:校验库存
+f->fdc:分拣完成
+fdc->fdc:激活配送任务
+fdc->fdc:出库
+fdc-->mc:待配送
+alg->fdc:获取待配送任务
+alg->fdc:分派配送任务
+deactivate fdc
+fdc->g : 下发任务，新任务通知
+activate fdc
+fdc-->mc:配送中
+g->fdc:接单
+g-->fdc:出发
+g-->fdc:配送完成
+fdc->mc :订单完成
+deactivate fdc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@enduml

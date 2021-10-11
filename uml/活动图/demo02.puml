@@ -1,0 +1,8 @@
+@startuml
+:fool;
+note left:a note
+:fool2;
+note right
+    tis is
+end note
+@enduml

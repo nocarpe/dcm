@@ -1,0 +1,28 @@
+@startuml
+start
+
+if(multiprocessor?) then (yes)
+ fork
+    :Treatment 1|
+    partition init {
+    #HotPink:Treatment 2<
+        -[#blue]-> it cam;
+        #AAAAAA:Treatment 2>
+    }
+ note left:this is  a note
+ fork again
+    :Treatment 2;
+    note right
+        this is  two note
+        //lines// you can
+        contain <b>HTML</b>
+        ====
+        * Calling the method ""foo()"" is published
+    end note
+ end fork
+ else
+    :Treatment 1;
+    :Treatment 2;
+endif
+
+@enduml

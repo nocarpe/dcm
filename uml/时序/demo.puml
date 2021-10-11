@@ -1,0 +1,12 @@
+@startuml
+
+participant maicai as m
+participant ofc as o
+participant task as t
+participant delivery as d
+
+
+m->o :下单
+
+
+@enduml

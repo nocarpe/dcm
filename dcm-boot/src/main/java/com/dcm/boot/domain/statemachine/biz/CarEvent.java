@@ -18,4 +18,22 @@ public enum CarEvent {
     SUBMIT_BUYOUT_APPLY,
     BUYOUT_APPLY_AGREE,
     SURRENDER_APPLY,
+    ;
+
+
+    public static CarEvent build(int num) {
+        CarEvent carEvent = null;
+        switch (num) {
+            case 1:
+                carEvent = IN_STOCK;
+                break;
+            case 2:
+                carEvent = SURRENDER_APPLY;
+                break;
+            default:
+                break;
+
+        }
+        return carEvent;
+    }
 }

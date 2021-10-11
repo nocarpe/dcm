@@ -1,0 +1,13 @@
+@startuml
+start
+if(Grag inde?) then (yes)
+    : priddd all;
+else (no)
+    :process only
+    _dsad_and_activity_diagrams;
+endif
+:hello worde;
+:this is defined on
+several **line**;
+stop
+@enduml

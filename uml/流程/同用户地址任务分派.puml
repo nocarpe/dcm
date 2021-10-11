@@ -1,0 +1,20 @@
+@startuml
+
+start
+:改派任务;
+if(配送任务?)then(是)
+    :查询任务配送员的
+     其他待完成任务|
+    if(是否有同用户
+    同地址的订单?)then(是)
+    :过滤出任务号;
+    else(否)
+        endif
+    :分派任务;
+else(否)
+stop
+endif
+
+stop
+
+@enduml

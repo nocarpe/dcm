@@ -1,0 +1,11 @@
+@startuml
+
+usecase 活动中心 as zx
+
+usecase 活动轨迹 as gj
+usecase 活动项目 as xm
+
+zx->gj
+zx->xm
+
+@enduml
