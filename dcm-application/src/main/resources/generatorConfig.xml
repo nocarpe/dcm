@@ -17,7 +17,7 @@
 
         <!--数据库连接配置-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-            connectionURL="jdbc:mysql://cdb1te.test.srv.mc.dd:3306/fdc_asset?useUnicode=true&amp;characterEncoding=UTF-8"
+            connectionURL="jdbc:mysql://cdb1te.test.srv.mc.dd:3306/waybill_center?useUnicode=true&amp;characterEncoding=UTF-8"
             userId="root" password="1234qwer">
         </jdbcConnection>
 
@@ -26,7 +26,7 @@
         </javaTypeResolver>
 
         <!-- 根据工程修改targetPackage，工程目录中新建do子目录 -->
-        <javaModelGenerator targetPackage="com.dcm.application.dal.model"
+        <javaModelGenerator targetPackage="com.ddmc.dcs.dal.model"
             targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
@@ -38,12 +38,12 @@
 
         <!-- 根据工程修改targetPackage，mapper下新建子目录 -->
         <javaClientGenerator type="XMLMAPPER"
-            targetPackage="com.dcm.application.dal.mapper" targetProject="src/main/java">
+            targetPackage="com.ddmc.dcs.dal.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!-- 添加表和实体的映射，实体以DO结尾，表和表中的字段以下划线_分隔 -->
-        <table tableName="station_asset_detail" domainObjectName="StationAssetDetail"
+        <table tableName="waybill" domainObjectName="Waybill"
             enableInsert="true"
             enableDeleteByPrimaryKey="true"
             enableSelectByPrimaryKey="true"

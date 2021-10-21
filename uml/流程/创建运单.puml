@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:履约下发作业单和履行单;
+:生成运单,状态初始化;
+:生成运单详情和配送信息;
+:记录运单状态变更日志;
+:通知履约中心履行单和作业单状态;
+stop
+
+@enduml

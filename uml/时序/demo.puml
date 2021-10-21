@@ -1,12 +1,34 @@
 @startuml
 
-participant maicai as m
-participant ofc as o
-participant task as t
-participant delivery as d
+participant 履约中心 as a
+participant 运单中心 as b
+actor 哥王 as c
+participant 运力中心 as d
+participant 调度中心 as e
+
+activate b
+a->b : 下发单据
+b->b : 生成运单
+b-->a :初始化
+
+a->b : 分拣完成
+b->b : 激活运单
+b-->a : 待分派
 
 
-m->o :下单
+b->b : 待分派运单
+b->d : 待分派骑手
+b->e : 待分派运单和骑手
 
+e->b : 分派骑手
+b-->a : 待配送
+b->c :下发任务，新任务通知
 
+c->b : 接单
+
+c->b : 出发-->生成配送批次
+b-->a : 配送中
+c->b : 配送完成
+b-->a : 配送完成
+deactivate b
 @enduml

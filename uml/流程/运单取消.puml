@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:校验取消来源;
+note: 1.用户取消;2.客服强制取消;3.坏单
+fork
+    :客服强制取消;
+fork again
+    :非强制取消;
+    :校验运单是否配送中;
+if()then(是)
+stop
+else(否)
+endif
+end fork
+:更新运单状态;
+:记录运单状态变更日志;
+:im通知小哥;
+:通知履约作业单和履行单状态;
+stop
+
+@enduml

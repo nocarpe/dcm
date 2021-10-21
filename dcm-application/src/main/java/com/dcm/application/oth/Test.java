@@ -21,7 +21,7 @@ public class Test {
         LocalDateTime startTime = LocalDateTime.now();
         LocalDateTime endTime = LocalDateTime.now();
 
-        System.out.println();
+        System.out.println(new Date(1577808000000l));
         int minute = localDateTime.getMinute();
         int hour = localDateTime.getHour();
         if (minute < 30) {

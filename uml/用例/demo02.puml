@@ -1,0 +1,6 @@
+@startuml
+left to right direction
+骑手 --> (Usecase 1)
+user2 --> (Usecase 2)
+
+@enduml

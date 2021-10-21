@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+start
+:分派任务（算法分派和改派）;
+:校验分责白名单;
+:校验是否初始分派;
+if()then(是)
+else(否)
+stop
+endif
+:获取组策略事业部配置配送保证时间;
+:计算时间;
+note right:用户预约截止时间-分派时间
+if(配送保证时间)then(大于)
+:骑手时间等于预约截止时间;
+else(小于)
+:骑手时间等于分派时间+配送保证时间;
+endif
+:更新骑手时间;
+stop
+@enduml
