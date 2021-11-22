@@ -17,7 +17,7 @@
 
         <!--数据库连接配置-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-            connectionURL="jdbc:mysql://cdb1te.test.srv.mc.dd:3306/waybill_center?useUnicode=true&amp;characterEncoding=UTF-8"
+            connectionURL="jdbc:mysql://cdb1te.test.srv.mc.dd:3306/fdc_do_0?useUnicode=true&amp;characterEncoding=UTF-8"
             userId="root" password="1234qwer">
         </jdbcConnection>
 
@@ -26,7 +26,7 @@
         </javaTypeResolver>
 
         <!-- 根据工程修改targetPackage，工程目录中新建do子目录 -->
-        <javaModelGenerator targetPackage="com.ddmc.dcs.dal.model"
+        <javaModelGenerator targetPackage="com.ddmc.dcs.common.dal.model"
             targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
@@ -38,12 +38,80 @@
 
         <!-- 根据工程修改targetPackage，mapper下新建子目录 -->
         <javaClientGenerator type="XMLMAPPER"
-            targetPackage="com.ddmc.dcs.dal.mapper" targetProject="src/main/java">
+            targetPackage="com.ddmc.dcs.common.dal.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!-- 添加表和实体的映射，实体以DO结尾，表和表中的字段以下划线_分隔 -->
-        <table tableName="waybill" domainObjectName="Waybill"
+        <table tableName="order_task_0" domainObjectName="OrderTask"
+            enableInsert="true"
+            enableDeleteByPrimaryKey="true"
+            enableSelectByPrimaryKey="true"
+            enableUpdateByPrimaryKey="true"
+            enableCountByExample="false"
+            enableDeleteByExample="false"
+            enableSelectByExample="false"
+            enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+
+        <table tableName="delivery_task_ext_0" domainObjectName="DeliveryTaskExt"
+            enableInsert="true"
+            enableDeleteByPrimaryKey="true"
+            enableSelectByPrimaryKey="true"
+            enableUpdateByPrimaryKey="true"
+            enableCountByExample="false"
+            enableDeleteByExample="false"
+            enableSelectByExample="false"
+            enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+
+        <table tableName="order_task_detail_0" domainObjectName="OrderTaskDetail"
+            enableInsert="true"
+            enableDeleteByPrimaryKey="true"
+            enableSelectByPrimaryKey="true"
+            enableUpdateByPrimaryKey="true"
+            enableCountByExample="false"
+            enableDeleteByExample="false"
+            enableSelectByExample="false"
+            enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="order_task_sku_detail_0" domainObjectName="OrderTaskSkuDetail"
+            enableInsert="true"
+            enableDeleteByPrimaryKey="true"
+            enableSelectByPrimaryKey="true"
+            enableUpdateByPrimaryKey="true"
+            enableCountByExample="false"
+            enableDeleteByExample="false"
+            enableSelectByExample="false"
+            enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="order_task_assign_log_0" domainObjectName="OrderTaskAssignLog"
+            enableInsert="true"
+            enableDeleteByPrimaryKey="true"
+            enableSelectByPrimaryKey="true"
+            enableUpdateByPrimaryKey="true"
+            enableCountByExample="false"
+            enableDeleteByExample="false"
+            enableSelectByExample="false"
+            enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="order_image_0" domainObjectName="OrderImage"
+            enableInsert="true"
+            enableDeleteByPrimaryKey="true"
+            enableSelectByPrimaryKey="true"
+            enableUpdateByPrimaryKey="true"
+            enableCountByExample="false"
+            enableDeleteByExample="false"
+            enableSelectByExample="false"
+            enableUpdateByExample="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="order_task_status_log_0" domainObjectName="OrderTaskStatus"
             enableInsert="true"
             enableDeleteByPrimaryKey="true"
             enableSelectByPrimaryKey="true"

@@ -1,4 +1,4 @@
-package com.dcm.thread.utils.common;
+package com.dcm.application.util;
 
 public class ClosedUtil {
     private static boolean closed = false;

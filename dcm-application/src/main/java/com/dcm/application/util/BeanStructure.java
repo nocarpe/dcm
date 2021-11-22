@@ -1,6 +1,5 @@
-package com.dcm.thread.utils.common;
+package com.dcm.application.util;
 
-import java.beans.BeanProperty;
 import java.util.HashMap;
 import java.util.Map;
 

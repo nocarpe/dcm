@@ -1,4 +1,4 @@
-package com.dcm.thread.utils.common;
+package com.dcm.application.util;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -17,7 +17,7 @@ public class MoneyUtils {
         Number number;
         try {
             number = format.parse(yuan);
-        } catch (ParseException var5) {
+        } catch (Exception var5) {
             return null;
         }
 

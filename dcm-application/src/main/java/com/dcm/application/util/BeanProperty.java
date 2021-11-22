@@ -1,4 +1,6 @@
-package com.dcm.thread.utils.common;
+package com.dcm.application.util;
+
+import java.lang.reflect.Method;
 
 public class BeanProperty {
     private String name;

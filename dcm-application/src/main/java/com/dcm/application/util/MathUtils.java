@@ -1,12 +1,12 @@
-package com.dcm.thread.utils.common;
+package com.dcm.application.util;
 
 import java.math.BigDecimal;
-import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.commons.lang.math.NumberUtils;
 
 public final class MathUtils {
     private static int DEF_SCALE = 10;
 
-    public strictfp MathUtils() {
+    public MathUtils() {
     }
 
     public static final strictfp BigDecimal createBigDecimal(String decimalStr) {

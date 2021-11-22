@@ -1,4 +1,4 @@
-package com.dcm.thread.utils.common;
+package com.dcm.application.util;
 
 import com.alibaba.fastjson.JSON;
 import java.util.Collection;

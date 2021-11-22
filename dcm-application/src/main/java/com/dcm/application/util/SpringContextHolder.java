@@ -1,4 +1,7 @@
-package com.dcm.thread.utils.common;
+package com.dcm.application.util;
+
+import java.util.Map;
+import org.springframework.context.ApplicationContext;
 
 public class SpringContextHolder {
     private static ApplicationContext applicationContext;
@@ -15,7 +18,7 @@ public class SpringContextHolder {
 
     public static <T> T getBean(Class<T> clazz) {
         Map beanMaps = applicationContext.getBeansOfType(clazz);
-        return beanMaps != null && !beanMaps.isEmpty() ? beanMaps.values().iterator().next() : null;
+        return beanMaps != null && !beanMaps.isEmpty() ? (T) beanMaps.values().iterator().next() : null;
     }
 
     /** @deprecated */
@@ -26,7 +29,7 @@ public class SpringContextHolder {
 
     public static <T> T getBeanByName(String name, Class<T> clazz) {
         Map beanMaps = applicationContext.getBeansOfType(clazz);
-        return beanMaps.get(name);
+        return (T) beanMaps.get(name);
     }
 
     public SpringContextHolder(ApplicationContext arg0) {

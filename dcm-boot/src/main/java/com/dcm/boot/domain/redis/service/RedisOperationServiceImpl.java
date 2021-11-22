@@ -1,18 +1,8 @@
 package com.dcm.boot.domain.redis.service;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
-import javax.annotation.Resource;
 
-public class RedisOperationServiceImpl implements RedisClusterOperationService {
+public class RedisOperationServiceImpl implements RedisOperationService {
+/*
 
     @Resource(name = "redisClusterTemplate")
     private RedisTemplate redisClusterTemplate;
@@ -34,10 +24,12 @@ public class RedisOperationServiceImpl implements RedisClusterOperationService {
         return true;
     }
 
+    */
     /**
      * 设置缓存
      * (String)
-     */
+     *//*
+
     @Override
     public <T> boolean setValueBySecond(String cacheKey, T objValue, long expiration) {
         if (Objects.equals(0L, expiration)) {
@@ -48,10 +40,12 @@ public class RedisOperationServiceImpl implements RedisClusterOperationService {
         return true;
     }
 
+    */
     /**
      * 设置缓存
      * (String)
-     */
+     *//*
+
     @Override
     public <T> boolean setValueByDay(String cacheKey, T objValue, long expiration) {
         if (Objects.equals(0L, expiration)) {
@@ -117,9 +111,11 @@ public class RedisOperationServiceImpl implements RedisClusterOperationService {
         return redisClusterTemplate.delete(cacheKey);
     }
 
+    */
     /**
      * 判断key是否存在
-     */
+     *//*
+
     @Override
     public boolean existKey(String cacheKey) {
         return redisClusterTemplate.hasKey(cacheKey);
@@ -165,9 +161,11 @@ public class RedisOperationServiceImpl implements RedisClusterOperationService {
         redisClusterTemplate.opsForHash().delete(key, hashKey);
     }
 
+    */
     /**
      * 添加list
-     */
+     *//*
+
     @Override
     public <T> void insertListByDay(String key, List<T> list, long expiration) {
         redisClusterTemplate.opsForList().leftPush(key, list);
@@ -175,9 +173,11 @@ public class RedisOperationServiceImpl implements RedisClusterOperationService {
         redisClusterTemplate.expire(key, expiration, TimeUnit.DAYS);
     }
 
+    */
     /**
      * 自增
-     */
+     *//*
+
     @Override
     public Long increment(String redisKey) {
         return redisClusterTemplate.opsForValue().increment(redisKey);
@@ -201,9 +201,11 @@ public class RedisOperationServiceImpl implements RedisClusterOperationService {
         return redisClusterTemplate.delete(keys);
     }
 
+    */
     /**
      * 设置过期时间的锁
-     */
+     *//*
+
     @Override
     public boolean lock(String lockKey, long timeout, TimeUnit unit) {
         return redisClusterTemplate.opsForValue().setIfAbsent(lockKey, UUID.randomUUID(), timeout, unit);
@@ -225,28 +227,34 @@ public class RedisOperationServiceImpl implements RedisClusterOperationService {
         return addResult;
     }
 
+    */
     /**
      * 删除 zSet
-     */
+     *//*
+
     @Override
     public boolean zSetRemove(String cacheKey, Object... values) {
         Long remove = redisClusterTemplate.opsForZSet().remove(cacheKey, values);
         return values.length == remove.intValue();
     }
 
+    */
     /**
      * 顺序获取zSet 所有value
-     */
+     *//*
+
     @Override
     public Set<String> zSetGetAllAsc(String cacheKey) {
         return redisClusterTemplate.opsForZSet().rangeByLex(cacheKey, RedisZSetCommands.Range.unbounded());
     }
 
+    */
     /**
      * 设置过期key
      *
      * @param key key
-     */
+     *//*
+
     @Override
     public boolean expire(String key, long seconds) {
         return redisClusterTemplate.expire(key, seconds, TimeUnit.SECONDS);
@@ -326,4 +334,5 @@ public class RedisOperationServiceImpl implements RedisClusterOperationService {
                 (V) hashValueSerializer.deserialize(entry.getValue()));
         }
         return map;
-    }
+    }*/
+}

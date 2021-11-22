@@ -1,4 +1,4 @@
-package com.dcm.boot.utils;
+package com.dcm.application.util;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Array;

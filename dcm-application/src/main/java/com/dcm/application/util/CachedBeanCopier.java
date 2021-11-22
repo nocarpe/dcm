@@ -1,4 +1,4 @@
-package com.dcm.boot.utils;
+package com.dcm.application.util;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -23,4 +23,4 @@ public class CachedBeanCopier {
     private static String genKey(Class<?> srcClazz, Class<?> destClazz) {
         return srcClazz.getName() + destClazz.getName();  
     }  
-}  
+} 
