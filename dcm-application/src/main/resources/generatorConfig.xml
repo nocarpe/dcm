@@ -17,7 +17,7 @@
 
         <!--数据库连接配置-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-            connectionURL="jdbc:mysql://cdb1te.test.srv.mc.dd:3306/fdc_do_0?useUnicode=true&amp;characterEncoding=UTF-8"
+            connectionURL="jdbc:mysql://cdb1te.test.srv.mc.dd:3306/fdc?useUnicode=true&amp;characterEncoding=UTF-8"
             userId="root" password="1234qwer">
         </jdbcConnection>
 
@@ -43,7 +43,7 @@
         </javaClientGenerator>
 
         <!-- 添加表和实体的映射，实体以DO结尾，表和表中的字段以下划线_分隔 -->
-        <table tableName="order_task_0" domainObjectName="OrderTask"
+        <table tableName="station_staff_illegal_info" domainObjectName="stationStaffIllegalInfo"
             enableInsert="true"
             enableDeleteByPrimaryKey="true"
             enableSelectByPrimaryKey="true"
@@ -55,73 +55,7 @@
             <property name="useActualColumnNames" value="false"/>
         </table>
 
-        <table tableName="delivery_task_ext_0" domainObjectName="DeliveryTaskExt"
-            enableInsert="true"
-            enableDeleteByPrimaryKey="true"
-            enableSelectByPrimaryKey="true"
-            enableUpdateByPrimaryKey="true"
-            enableCountByExample="false"
-            enableDeleteByExample="false"
-            enableSelectByExample="false"
-            enableUpdateByExample="false">
-            <property name="useActualColumnNames" value="false"/>
-        </table>
 
-        <table tableName="order_task_detail_0" domainObjectName="OrderTaskDetail"
-            enableInsert="true"
-            enableDeleteByPrimaryKey="true"
-            enableSelectByPrimaryKey="true"
-            enableUpdateByPrimaryKey="true"
-            enableCountByExample="false"
-            enableDeleteByExample="false"
-            enableSelectByExample="false"
-            enableUpdateByExample="false">
-            <property name="useActualColumnNames" value="false"/>
-        </table>
-        <table tableName="order_task_sku_detail_0" domainObjectName="OrderTaskSkuDetail"
-            enableInsert="true"
-            enableDeleteByPrimaryKey="true"
-            enableSelectByPrimaryKey="true"
-            enableUpdateByPrimaryKey="true"
-            enableCountByExample="false"
-            enableDeleteByExample="false"
-            enableSelectByExample="false"
-            enableUpdateByExample="false">
-            <property name="useActualColumnNames" value="false"/>
-        </table>
-        <table tableName="order_task_assign_log_0" domainObjectName="OrderTaskAssignLog"
-            enableInsert="true"
-            enableDeleteByPrimaryKey="true"
-            enableSelectByPrimaryKey="true"
-            enableUpdateByPrimaryKey="true"
-            enableCountByExample="false"
-            enableDeleteByExample="false"
-            enableSelectByExample="false"
-            enableUpdateByExample="false">
-            <property name="useActualColumnNames" value="false"/>
-        </table>
-        <table tableName="order_image_0" domainObjectName="OrderImage"
-            enableInsert="true"
-            enableDeleteByPrimaryKey="true"
-            enableSelectByPrimaryKey="true"
-            enableUpdateByPrimaryKey="true"
-            enableCountByExample="false"
-            enableDeleteByExample="false"
-            enableSelectByExample="false"
-            enableUpdateByExample="false">
-            <property name="useActualColumnNames" value="false"/>
-        </table>
-        <table tableName="order_task_status_log_0" domainObjectName="OrderTaskStatus"
-            enableInsert="true"
-            enableDeleteByPrimaryKey="true"
-            enableSelectByPrimaryKey="true"
-            enableUpdateByPrimaryKey="true"
-            enableCountByExample="false"
-            enableDeleteByExample="false"
-            enableSelectByExample="false"
-            enableUpdateByExample="false">
-            <property name="useActualColumnNames" value="false"/>
-        </table>
 
     </context>
 </generatorConfiguration>
