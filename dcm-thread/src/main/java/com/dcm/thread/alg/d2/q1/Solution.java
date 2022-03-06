@@ -18,7 +18,7 @@ class Solution {
     public static int[] maxSlidingWindow(int[] nums, int k) {
 
         int length = nums.length;
-        int count = length - k +1;
+        int count = length - k + 1;
 
         if (length <= 1 || k == 1) {
             return nums;
@@ -29,7 +29,7 @@ class Solution {
             int[] temp = new int[k];
             int tempI = 0;
             while (tempI < k) {
-                temp[tempI] = nums[tempI+i];
+                temp[tempI] = nums[tempI + i];
                 tempI++;
             }
             result[i] = getLargest(temp);
@@ -42,7 +42,7 @@ class Solution {
     /**
      * 单个window 最大
      */
-    public static  int getLargest(int[] windows) {
+    public static int getLargest(int[] windows) {
         int num = Integer.MIN_VALUE;
         for (int i = 0; i < windows.length; i++) {
             if (num < windows[i]) {
@@ -73,8 +73,8 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,9361,-750,-660,-1,3,33,32,321};
-        int[] arr =maxSlidingWindowA(nums,2);
+        int[] nums = {1, 9361, -750, -660, -1, 3, 33, 32, 321};
+        int[] arr = maxSlidingWindowA(nums, 2);
         System.out.println(Arrays.toString(arr));
     }
 
