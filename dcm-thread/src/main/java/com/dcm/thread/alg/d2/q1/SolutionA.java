@@ -31,12 +31,7 @@ public class SolutionA {
     public static int[] maxSlidingWindow(int[] nums, int k) {
         int length = nums.length;
         int count = length - k + 1;
-        Queue<int[]> queue = new PriorityQueue<>(new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[0] != o2[0] ? o2[0] - o1[0] : o2[1] - o1[1];
-            }
-        });
+        Queue<int[]> queue = new PriorityQueue<>((o1, o2) -> o1[0] != o2[0] ? o2[0] - o1[0] : o2[1] - o1[1]);
         for (int i = 0; i < k; i++) {
             queue.offer(new int[]{nums[i], i});
         }
@@ -83,7 +78,7 @@ public class SolutionA {
 
     public static void main(String[] args) {
         int[] nums = {1, 9361, -750, -660, -1, 3, 33, 32, 321};
-        int[] arr = maxSlidingWindow(nums, 2);
+        int[] arr = maxSlidingWindowB(nums, 2);
         System.out.println(Arrays.toString(arr));
     }
 
