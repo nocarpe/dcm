@@ -53,6 +53,23 @@ public class SolutionD {
     }
 
 
+    public static int lengthOfLongestSubstring5(String s) {
+        int[] allchar = new int[128];
+        for (int i = 0; i < 128; i++) {
+            allchar[i] = -1;
+        }
+        int len = s.length();
+        int ans = 0;
+        int start = 0;
+        for (int i = 0; i < len; i++) {
+            int index = s.charAt(i);
+            start = Math.max(start, allchar[index] + 1);
+            ans = Math.max(ans, i - start + 1);
+            allchar[index] = i;
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
 
         String str = "zaavbsaa";

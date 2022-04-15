@@ -192,6 +192,36 @@ class Solution {
     }
 
 
+    public static void quickSort2(int[] arrs, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        int temp;
+        int i = left;
+        int j = right;
+        int base = arrs[i];
+
+        while (i < j) {
+            while (arrs[j] >= base && i < j) {
+                j--;
+            }
+            while (arrs[i] <= base && i < j) {
+                i++;
+            }
+            if (i < j) {
+                temp = arrs[i];
+                arrs[i] = arrs[j];
+                arrs[j] = temp;
+            }
+            arrs[left] = arrs[i];
+            arrs[i] = base;
+            quickSort2(arrs, left, j - 1);
+            quickSort2(arrs, left + 1, right);
+        }
+
+
+    }
+
     public static void main(String[] args) {
         int aarr[] = {5, 2, 7, 3, 8, 14, 11, 13, 9, 4};
         sort(aarr, 0, aarr.length - 1);
