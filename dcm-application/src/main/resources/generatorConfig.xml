@@ -43,7 +43,7 @@
         </javaClientGenerator>
 
         <!-- 添加表和实体的映射，实体以DO结尾，表和表中的字段以下划线_分隔 -->
-        <table tableName="station_staff_illegal_info" domainObjectName="stationStaffIllegalInfo"
+        <table tableName="station_dispatch_config_log" domainObjectName="Do"
             enableInsert="true"
             enableDeleteByPrimaryKey="true"
             enableSelectByPrimaryKey="true"

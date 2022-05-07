@@ -22,7 +22,10 @@ public class Test {
     public static final String TIME_FORMAT = "HH:mm";
     public static void main(String[] args) {
         Map<Integer, String> map = new HashMap<>();
-        DES des = SecureUtil.des(Base64.getDecoder().decode("pHBGusspFeo="));
-       System.out.println(des.decryptStr(""));
+        Float f = new Float(23.441f);
+
+        //DES des = SecureUtil.des(Base64.getDecoder().decode("pHBGusspFeo="));
+        double a = f;
+       System.out.println(Double.valueOf(f.toString()));
     }
 }

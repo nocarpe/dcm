@@ -1,0 +1,26 @@
+@startuml
+
+class CountHeader {
+    id : PK
+    countType：盘点类型（1：默认；2：赢）
+    completeTime：完成时间
+}
+
+class CountDetail {
+      id : PK
+      remark：备注
+      status：状态（10：初始化；20：处理中；40：完成）
+}
+
+class CountOperateRecord {
+      id : PK
+      theoryQty：理论数量
+      operateQty：操作数量
+      terminalType：操作端
+}
+
+CountHeader "1"->"N"CountDetail
+CountHeader "1"->"N"CountOperateRecord
+CountDetail "1"->"1"CountOperateRecord
+
+@enduml
