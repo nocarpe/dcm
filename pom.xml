@@ -14,6 +14,7 @@
         <module>dcm-application</module>
         <module>dcm-boot</module>
         <module>dcm-biz</module>
+        <module>dcm-es</module>
     </modules>
     <properties>
         <springboot.version>2.3.5.RELEASE</springboot.version>
