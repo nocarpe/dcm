@@ -1,14 +1,9 @@
 package com.dcm.thread.disruptor;
 
 import com.dcm.thread.data.TaskEvent;
-import com.lmax.disruptor.BlockingWaitStrategy;
-import com.lmax.disruptor.EventFactory;
-import com.lmax.disruptor.EventHandler;
 import com.lmax.disruptor.RingBuffer;
 import com.lmax.disruptor.dsl.Disruptor;
-import com.lmax.disruptor.dsl.ProducerType;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ThreadFactory;
 
 /**
  * @author : yaoximing

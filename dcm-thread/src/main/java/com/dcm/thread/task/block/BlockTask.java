@@ -1,6 +1,5 @@
 package com.dcm.thread.task.block;
 
-import com.dcm.thread.data.TaskData;
 import com.dcm.thread.task.AbstractNomalTask;
 
 /**

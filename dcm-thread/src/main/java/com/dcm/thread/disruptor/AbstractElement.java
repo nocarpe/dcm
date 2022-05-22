@@ -1,6 +1,5 @@
 package com.dcm.thread.disruptor;
 
-import com.dcm.thread.data.TaskEvent;
 import com.lmax.disruptor.BlockingWaitStrategy;
 import com.lmax.disruptor.EventFactory;
 import com.lmax.disruptor.EventHandler;

@@ -90,9 +90,8 @@ public final class Money implements Serializable {
     }
 
     public int hashCode() {
-        int prime = true;
-        int result = 1;
-        int result = 31 * result + (new Long(this.amount)).hashCode();
+        int prime = 0;
+        int result = 31  + (new Long(this.amount)).hashCode();
         result = 31 * result + (this.currency == null ? 0 : this.currency.hashCode());
         return result;
     }
