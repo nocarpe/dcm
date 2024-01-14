@@ -14,7 +14,6 @@ import org.springframework.context.annotation.ComponentScan;
  **/
 @MapperScan(basePackages = "com.dcm.application.dal.mapper")
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@EnableAutoConfiguration
 public class StartMain {
 
     public static void main(String[] args) {

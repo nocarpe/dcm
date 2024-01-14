@@ -10,12 +10,7 @@ class Solution {
 
     public static int findKthLargest(int[] nums, int k) {
 
-        PriorityQueue<Integer> heap = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o1 - o2;
-            }
-        });
+        PriorityQueue<Integer> heap = new PriorityQueue<>(Comparator.comparingInt(o -> o));
 
         for (int n : nums) {
             heap.offer(n);
@@ -28,8 +23,8 @@ class Solution {
 
 
     public static void main(String[] args) {
-int arr[] ={3,2,1,5,6,4};
+        int arr[] = {3, 2, 1, 5, 6, 4};
 
-System.out.println(findKthLargest(arr,2));
+        System.out.println(findKthLargest(arr, 2));
     }
 }

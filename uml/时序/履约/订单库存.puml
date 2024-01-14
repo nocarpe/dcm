@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+@startuml
+
+title: 履约执行-正向流程-分拣
+'!theme sandstone
+scale 1
+autonumber
+
+participant "交易-订单中心" as T order 1
+participant "交易-销售库存中心" as TS order 2
+participant "履约-订单中心" as FO order 3
+participant MQ as Q order 4
+participant "供应链-业务库存" as SS order 5
+participant "履约-分拣" as FP order 5
+participant "前仓-实物库存" as FS order 6
+
+
+FP -> FP : 分拣完成
+FP -> FS : 扣减库存
+FS -> FS : 库存扣减
+FP <-- FS : 扣减成功
+FP --> Q : 发送分拣完成消息
+FO <-- Q : 消费分拣完成
+FO -> FO : 更新履约单状态
+FO -> SS : 扣减预占库存
+SS -> SS : 扣减业务库存
+FO --> Q : 发送订单分拣完成消息
+T <-- Q : 消费订单分拣完成消息
+T -> TS : 扣减预占库存
+TS -> TS : 预占库存扣减
+
+@enduml

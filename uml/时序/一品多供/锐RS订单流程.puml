@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+title: 销售订单主流程
+'!theme sandstone
+scale 1
+autonumber
+
+participant "销售-OMS" as OMS order 1
+participant "MP" as MP order 2
+participant "SMP-Service" as SMP order 3
+participant "库存中心" as ST order 4
+participant "批次库存" as PC order 5
+participant "ODS" as OS order 6
+participant "OFS" as OFS order 7
+participant "WMS-mirror" as WM order 8
+participant "WMS" as WS order 9
+
+
+OMS->OMS:下单销售单
+MP->OMS:定时查询已审核销售单
+MP->MP:依据销售单生成出库单
+group 出库规则
+MP->ST:出库单出库执行开始
+ST->ST:查询出库单行（sku）的出库规则
+ST->SMP:查询sku有哪些smp_code
+ST->ST:根据出库规则做库存预占
+note right
+一品多供
+end note
+ST-->MP:返回库存预占结果
+end
+MP->MP:记录出库明细(sku+smp_code+qty)
+MP->OS:推送已分配好的出库明细(sku+smp_code+qty)
+OS->OFS:拆分推送
+OFS->WS:转换（sku+smp_code）==> barcode
+WS->WS:执行仓内作业，扫码出
+WS->WM:出库结果
+WM->PC:出库结果
+PC->ST:批次库存出库明细
+ST->ST:扣除预占库存
+WM->MP:出库结果
+MP->MP:更新出库明细
+note left
+查询ods，聚合
+end note
+MP->MP:扣减账面库存
+MP->OMS:通知出库成功
+OMS->OMS:销售单已出库
+
+@enduml

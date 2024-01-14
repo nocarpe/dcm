@@ -1,0 +1,23 @@
+@startuml
+title: 履约执行-正向流程-创单
+'!theme sandstone
+scale 1
+autonumber
+
+participant "交易-订单中心" as T order 1
+participant "交易-销售库存中心" as TS order 2
+participant "履约-订单中心" as FO order 3
+participant MQ as Q order 4
+participant "供应链-业务库存" as SS order 5
+
+
+T -> T : 用户下单
+T -> TS : 库存预占
+T -> FO : 用户支付后，订单同步
+FO -> FO : 创建履约单
+FO --> Q : 发送创单消息
+FO <-- Q : 消费创建消息
+FO -> SS : 预占库存
+SS -> SS : 预占业务库存
+
+@enduml

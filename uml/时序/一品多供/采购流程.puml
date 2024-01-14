@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:新建采购单;
+:查询sku行对应的品类配置;
+note right
+一品多供
+end note
+:解析品类配置的关联属性;
+note right
+供应商维度
+end note
+:查询sku对应的属性值;
+note right
+例如：大通
+end note
+:获取属性(供应商)值的smp_code;
+:校验是否存在;
+if()then(是)
+else(否)
+:调用smp-code服务
+生成属性供应商
+对应的smp_code>
+:保存smp_code和属性关系;
+endif
+:更新采购单行明细+smp_code;
+stop
+
+@enduml

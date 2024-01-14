@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:出库单生成;
+:查询sku行对应的品类出库配置;
+:校验sku是否可一品多供;
+if()then(否)
+:sku库存预占（现链路）;
+else(是)
+:查询sku smp_code库存;
+:查询smp_code出库优先级;
+note right
+    smp_code优先级：指定或者随机
+end note
+:根据sku smp_code做库存预占;
+endif
+:返回库存占用明细（sku+smp_code+qty）;
+:更新出库单sku明细;
+:推送ODS执行;
+stop
+
+@enduml

@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/component-diagram
+'配送平台主流程
+'!theme sandstone
+autonumber
+
+
+participant 交易 as T order 1
+participant 订单中心 as O order 2
+participant 销售执行中心 as S order 3
+participant 采购算法中心 as A order 4
+participant 采购管理系统 as P order 5
+participant 大仓管理系统 as W order 6
+participant 前仓管理系统 as F order 7
+
+group 活动信息同步
+T -> O : 预售活动信息同步
+end
+
+T -> O : 订单同步
+O -> O : 生成【履约单】
+O -> S : 下发销售执行中心
+S -> S : 生成【销售需求单】，保存【销售需求单】与【履约单】映射关系，销售需求子单
+T -> S : 预售活动截单信息同步
+S -> T : 获取活动关联的预售订单列表
+S -> S : 截单30分钟后，校准【销售需求汇总单】
+
+alt 采购调拨链路
+
+S -> A : 截单后，下发【销售需求单】到算法
+alt 采购链路
+A -> A : 生成【采购计划单】
+A -> P : 下发【采购计划单】到采购调拨系统
+P -> P : 生成【采购执行单】
+P -> W : 下发【采购执行单】
+W -> W : 大仓入库
+else 调拨链路
+A -> A : 生成【调拨计划单】
+A -> P : 下发【调拨计划单】到采购调拨系统
+P -> P : 生成【调拨执行单】
+P -> W : 下发【调拨执行单】
+W -> W : 大仓出库
+end
+
+else 缺货预售链路
+A -> S : 获取【销售需求单】
+A -> A : 生成【实时分拣计划】
+A -> W : 下发【实时分拣计划】
+W -> W : 大仓出库
+end
+
+group 预售库存入库
+F -> S : 调拨单入库
+S -> S : 过滤入库信息，生成需求单入库结果信息
+S -> T : 将预售库存同步给交易侧
+end
+
+group 订单取消/改约
+O -> O : 订单取消/改约
+O -> S : 生成【销售需求变更单】，更新【销售需求单】
+S -> A : 同步【销售需求单】
+end
+
+@enduml

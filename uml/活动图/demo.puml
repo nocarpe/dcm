@@ -6,7 +6,7 @@ else (no)
     :process only
     _dsad_and_activity_diagrams;
 endif
-:hello worde;
+:hello world;
 :this is defined on
 several **line**;
 stop

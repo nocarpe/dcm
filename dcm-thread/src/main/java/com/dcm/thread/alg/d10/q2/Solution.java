@@ -41,4 +41,31 @@ class Solution {
         }
 
     }
+
+
+    public List<List<Integer>> getResult(int[] arrs, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> tempList = new ArrayList<>();
+        cal(arrs, target, result, tempList, 0);
+        return result;
+    }
+
+    private void cal(int[] arrs, int target, List<List<Integer>> result, List<Integer> temp, int idx) {
+        if (idx == arrs.length) {
+            return;
+        }
+        if (target == 0) {
+            result.add(new ArrayList<>(temp));
+            return;
+        }
+        cal(arrs, target, result, temp, idx + 1);
+        if (target - arrs[idx] >= 0) {
+            temp.add(arrs[idx]);
+            cal(arrs, target - arrs[idx], result, temp, idx);
+            temp.remove(temp.size() - 1);
+        }
+
+
+    }
+
 }

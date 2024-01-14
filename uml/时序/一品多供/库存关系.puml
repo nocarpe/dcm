@@ -1,0 +1,35 @@
+@startuml
+title: 库存出库关系
+'!theme sandstone
+scale 1
+autonumber
+participant "销售-商城" as M order 1
+participant "销售-OMS" as OMS order 2
+participant "MP" as MP order 3
+participant "履约-业务库存" as SS order 5
+participant "WMS" as WO order 5
+participant "WMS-实物库存" as WS order 6
+group 仓内作业 扫码出库
+
+WO->WO:订单出库
+end
+WO->WS:扣减库存
+WS->WS:库存扣减
+WS-->WO:扣减成功
+WO-->MP:出库完成消息
+MP->MP:消费出库完成消息
+MP->MP:更新履约单状态
+MP->SS:扣除业务库存预占
+SS->SS:业务库存预占扣减
+MP-->OMS:发送订单出库完成消息
+OMS->OMS:消费订单出库完成消息
+OMS->M:扣除销售库存预占
+M->M:销售库存预占扣减
+
+
+
+
+
+
+
+@enduml
