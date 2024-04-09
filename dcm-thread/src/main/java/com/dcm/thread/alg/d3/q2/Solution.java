@@ -23,6 +23,24 @@ class Solution {
     }
 
 
+
+    public int[] sortSelectCopy(int[] nums){
+        int len =nums.length;
+        for (int i = 0; i < len; i++) {
+            int minIdx =i;
+            for (int j = i+1; j < len; j++) {
+                if (nums[j]<nums[minIdx]){
+                    minIdx = j;
+                }
+            }
+            int temp = nums[i];
+            nums[minIdx] = temp;
+            nums[i]=nums[minIdx];
+        }
+        return nums;
+    }
+
+
     // 插入排序：稳定排序，在接近有序的情况下，表现优异
     public int[] sortInsert(int[] nums) {
         int len = nums.length;
@@ -37,6 +55,20 @@ class Solution {
         }
         return nums;
 
+    }
+
+    public int[] sortInsertCopy(int[] nums){
+        int len = nums.length;
+        for (int i = 1; i < len; i++) {
+            int temp = nums[i];
+            int j = i;
+            while (j>0&& nums[j-1]>temp){
+                nums[j]=nums[j-1];
+                j--;
+            }
+            nums[j]=temp;
+        }
+        return nums;
     }
 
 

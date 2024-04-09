@@ -117,6 +117,7 @@ public class BinaryTree {
 	public void traverse(TreeNode subTree) {
 		System.out.println("key:" + subTree.key + "--name:" + subTree.data);
 		;
+		;
 		traverse(subTree.leftChild);
 		traverse(subTree.rightChild);
 	}

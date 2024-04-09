@@ -36,4 +36,41 @@ class Solution {
         }
 
     }
+
+
+    public ListNode reverseKGroupCopy(ListNode head, int k) {
+
+        int count = 0;
+        int index = 0;
+        ListNode cur = head;
+        ListNode check = head;
+        ListNode pre = null;
+        ListNode next = null;
+
+        while (count < k && check.next != null) {
+            check = check.next;
+            count++;
+
+        }
+
+        if (count == k) {
+            while (index < k && cur != null) {
+                next = cur.next;
+                cur.next = pre;
+                pre = cur;
+                cur = next;
+                index++;
+            }
+            if (next != null) {
+                head.next = reverseKGroupCopy(next, k);
+            }
+
+return pre;
+        } else {
+            return head;
+        }
+
+
+
+    }
 }

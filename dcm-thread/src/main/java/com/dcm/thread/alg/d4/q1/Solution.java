@@ -27,4 +27,16 @@ class Solution {
 
         System.out.println(findKthLargest(arr, 2));
     }
+
+
+    public int test(int[] nums,int k){
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o));
+        for(int num:nums){
+            queue.offer(num);
+            if (queue.size()>k){
+                queue.poll();
+            }
+        }
+        return queue.peek();
+    }
 }
