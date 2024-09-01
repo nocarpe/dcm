@@ -80,6 +80,21 @@ public class Solution {
 
     }
 
+    public void helper2(TreeNode subTree, int level) {
+        if (results.size() == level) {
+            results.add(new ArrayList<>());
+        }
+        results.get(level).add(subTree.getVal());
+        if (subTree.getLeft() != null) {
+            helper2(subTree.getLeft(), level + 1);
+        }
+        if (subTree.getRight() != null) {
+            helper2(subTree.getRight(), level + 1);
+        }
+
+
+    }
+
 
     public List<List<Integer>> levelOrder2(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
@@ -140,6 +155,9 @@ public class Solution {
 
     }
 
+
+
+
     // 二叉树的锯齿形层序遍历
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new LinkedList<>();
@@ -155,7 +173,7 @@ public class Solution {
         while (!queue.isEmpty()) {
             Deque<Integer> level = new LinkedList<>();
             int currentSize = queue.size();//本层的节点数量
-            System.out.println("遍历时的queue size:"+currentSize);
+            System.out.println("遍历时的queue size:" + currentSize);
             for (int i = 1; i <= currentSize; ++i) {
                 //从右往左
                 TreeNode node = queue.poll();
@@ -226,11 +244,13 @@ public class Solution {
 
     //二叉树最大深度
 
-    public int maxDepth(TreeNode root){
+    public int maxDepth(TreeNode root) {
 
-        if (root ==null) return 0;
+        if (root == null) {
+            return 0;
+        }
 
-        return Math.max(maxDepth(root.getLeft()),maxDepth(root.getRight())) +1;
+        return Math.max(maxDepth(root.getLeft()), maxDepth(root.getRight())) + 1;
     }
 
 }

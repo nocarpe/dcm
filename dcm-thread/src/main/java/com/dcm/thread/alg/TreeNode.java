@@ -10,10 +10,17 @@ public class TreeNode {
     private int val;
     private TreeNode left;
     private TreeNode right;
+    private int key;
 
-    TreeNode(){}
+    public TreeNode() {
+    }
 
     public TreeNode(int val) {
+        this.val = val;
+    }
+
+    public TreeNode(int key, int val) {
+        this.key = key;
         this.val = val;
     }
 
@@ -45,5 +52,13 @@ public class TreeNode {
 
     public void setRight(TreeNode right) {
         this.right = right;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
     }
 }
