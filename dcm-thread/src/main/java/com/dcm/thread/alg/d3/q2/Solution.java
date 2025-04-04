@@ -111,7 +111,7 @@ class Solution {
         sort(array, i + 1, right);
     }
 
-    public static void quickSort(int[] arr, int low, int high) {
+    public static void quick(int[] arr, int low, int high) {
         int t;
         if (low >= high) {
             return;
@@ -138,9 +138,9 @@ class Solution {
             arr[low] = arr[i];
             arr[i] = temp;
             //递归调用左半数组
-            quickSort(arr, low, j - 1);
+            //quickSort(arr, low, j - 1);
             //递归调用右半数组
-            quickSort(arr, j + 1, high);
+           // quickSort(arr, j + 1, high);
 
         }
 
