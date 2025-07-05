@@ -2,6 +2,8 @@ package com.dcm.thread.alg.d29;
 
 import com.dcm.thread.alg.TreeNode;
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -33,7 +35,9 @@ public class Solution {
 
     }
 
-
+    /**
+     * 是否是搜索二叉树
+     */
     public boolean isValidBST(TreeNode root) {
         // return recurse(root, null, null);
         //中序遍历法
@@ -77,7 +81,35 @@ public class Solution {
         return recurse(root.getRight(), root.getVal(), upper);
     }
 
+    /**
+     * 找到所有的路径之和
+     */
 
+    List<List<Integer>> res = new LinkedList<>();
+    Deque<Integer> path = new LinkedList<>();
+
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        if (root == null) {
+            return res;
+        }
+        dfsPath(root, targetSum);
+        return res;
+
+    }
+
+    private void dfsPath(TreeNode root, int targetSum) {
+
+        path.offerLast(root.getVal());
+        targetSum -= root.getVal();
+        if (root.getLeft() == null && root.getRight() == null && targetSum == 0) {
+            res.add(new LinkedList<>(path));
+        }
+        dfsPath(root.getLeft(), targetSum);
+        dfsPath(root.getRight(), targetSum);
+        path.pollLast();
+
+
+    }
 
 
 }

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javafx.util.Pair;
+import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.util.Strings;
 
 /**
@@ -45,7 +46,11 @@ public class Juzhen {
         return -1;
     }
 
-
+    /**
+     * 给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
+     *
+     * 说明：每次只能向下或者向右移动一步。
+     */
     public int minPathSum(int[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;
@@ -168,6 +173,36 @@ public class Juzhen {
 
         return res;
     }
+
+    public int widthOfBinaryTree2(TreeNode root) {
+        int res = 1;
+
+        List<Pair<TreeNode, Integer>> arr = new ArrayList<>();
+        arr.add(new Pair<>(root, 1));
+
+        while (!arr.isEmpty()) {
+            List<Pair<TreeNode, Integer>> tmp = new ArrayList<>();
+
+            for (Pair<TreeNode, Integer> par : arr) {
+                TreeNode node = par.getKey();
+                int idx = par.getValue();
+                if (node.getLeft() != null) {
+                    tmp.add(new Pair<>(node.getLeft(), idx * 2));
+                }
+                if (node.getRight() != null) {
+                    tmp.add(new Pair<>(node.getRight(), idx * 2 + 1));
+                }
+            }
+            res = Math.max(res, arr.get(arr.size() - 1).getValue() - arr.get(0).getValue()+1);
+            arr = tmp;
+
+        }
+        return res;
+
+    }
+
+
+
 
 
 }

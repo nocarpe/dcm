@@ -15,6 +15,7 @@ public class TestAlg {
 //
 //
 //        solution.zigzagLevelOrder();
+        System.out.println(1);
 
     }
 }
